@@ -20,12 +20,19 @@
     "destroy": "npx projen destroy",
     "diff": "npx projen diff"
   },
+  "author": {
+    "name": "Matt Martz",
+    "url": "https://matt.martz.codes/",
+    "organization": false
+  },
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.70",
     "@types/jest": "^26.0.20",
     "@types/node": "^10.17.0",
     "@typescript-eslint/eslint-plugin": "^4.3.0",
     "@typescript-eslint/parser": "^4.3.0",
     "aws-cdk": "^1.73.0",
+    "esbuild": "^0.8.33",
     "eslint": "^7.18.0",
     "eslint-import-resolver-node": "^0.3.4",
     "eslint-import-resolver-typescript": "^2.3.0",
@@ -41,7 +48,14 @@
   },
   "dependencies": {
     "@aws-cdk/assert": "^1.73.0",
-    "@aws-cdk/core": "^1.73.0"
+    "@aws-cdk/aws-apigateway": "^1.73.0",
+    "@aws-cdk/aws-dynamodb": "^1.73.0",
+    "@aws-cdk/aws-iam": "^1.73.0",
+    "@aws-cdk/aws-lambda": "^1.73.0",
+    "@aws-cdk/aws-lambda-nodejs": "^1.73.0",
+    "@aws-cdk/core": "^1.73.0",
+    "@middy/core": "^1.5.2",
+    "aws-sdk": "^2.828.0"
   },
   "bundledDependencies": [],
   "license": "Apache-2.0",

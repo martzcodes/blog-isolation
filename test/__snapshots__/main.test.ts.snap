@@ -1,0 +1,1349 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot 1`] = `
+Object {
+  "Outputs": Object {
+    "blogIsolationApiEndpoint237C4FAE": Object {
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            "https://",
+            Object {
+              "Ref": "blogIsolationApi0E03FFD8",
+            },
+            ".execute-api.",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            ".",
+            Object {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            Object {
+              "Ref": "blogIsolationApiDeploymentStageprodC5CB1FC6",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+  },
+  "Parameters": Object {
+    "AssetParameters368c59f6adf92e5009581f9c3a2a263f7f705e5568e73134c984973c195b0142ArtifactHash64172132": Object {
+      "Description": "Artifact hash for asset \\"368c59f6adf92e5009581f9c3a2a263f7f705e5568e73134c984973c195b0142\\"",
+      "Type": "String",
+    },
+    "AssetParameters368c59f6adf92e5009581f9c3a2a263f7f705e5568e73134c984973c195b0142S3Bucket6EA67ECF": Object {
+      "Description": "S3 bucket for asset \\"368c59f6adf92e5009581f9c3a2a263f7f705e5568e73134c984973c195b0142\\"",
+      "Type": "String",
+    },
+    "AssetParameters368c59f6adf92e5009581f9c3a2a263f7f705e5568e73134c984973c195b0142S3VersionKey688AF031": Object {
+      "Description": "S3 key for asset version \\"368c59f6adf92e5009581f9c3a2a263f7f705e5568e73134c984973c195b0142\\"",
+      "Type": "String",
+    },
+    "AssetParameters8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cfaceArtifactHash673D9223": Object {
+      "Description": "Artifact hash for asset \\"8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cface\\"",
+      "Type": "String",
+    },
+    "AssetParameters8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cfaceS3Bucket0E289674": Object {
+      "Description": "S3 bucket for asset \\"8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cface\\"",
+      "Type": "String",
+    },
+    "AssetParameters8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cfaceS3VersionKeyDD88706C": Object {
+      "Description": "S3 key for asset version \\"8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cface\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "blogIsolationApi0E03FFD8": Object {
+      "Properties": Object {
+        "Name": "blogIsolationApi",
+      },
+      "Type": "AWS::ApiGateway::RestApi",
+    },
+    "blogIsolationApiAccountE5BC517D": Object {
+      "DependsOn": Array [
+        "blogIsolationApi0E03FFD8",
+      ],
+      "Properties": Object {
+        "CloudWatchRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationApiCloudWatchRole1F33D0B1",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::ApiGateway::Account",
+    },
+    "blogIsolationApiCloudWatchRole1F33D0B1": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "apigateway.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "blogIsolationApiDeployment85E22ED96b4589c838cd6badcf2caf65309b7e01": Object {
+      "DependsOn": Array [
+        "blogIsolationApigrantwhatwhoGET6E59E95E",
+        "blogIsolationApigrantwhatwho00C78EF6",
+        "blogIsolationApigrantwhatGET976140F4",
+        "blogIsolationApigrantwhatF94B5AB9",
+        "blogIsolationApigrantF522B891",
+        "blogIsolationApiinitGET0F14200A",
+        "blogIsolationApiinitFC4E762D",
+        "blogIsolationApinoGrantwhatwhoGETC877DB57",
+        "blogIsolationApinoGrantwhatwho927B34A1",
+        "blogIsolationApinoGrantwhatGET27676849",
+        "blogIsolationApinoGrantwhatC6E7EED7",
+        "blogIsolationApinoGrant82BFF917",
+      ],
+      "Properties": Object {
+        "Description": "Automatically created by the RestApi construct",
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Deployment",
+    },
+    "blogIsolationApiDeploymentStageprodC5CB1FC6": Object {
+      "Properties": Object {
+        "DeploymentId": Object {
+          "Ref": "blogIsolationApiDeployment85E22ED96b4589c838cd6badcf2caf65309b7e01",
+        },
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+        "StageName": "prod",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "blogIsolationApigrantF522B891": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationApi0E03FFD8",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "grant",
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "blogIsolationApigrantwhatF94B5AB9": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Ref": "blogIsolationApigrantF522B891",
+        },
+        "PathPart": "{what}",
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "blogIsolationApigrantwhatGET976140F4": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "blogIsolationGrantFn52BAD062",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "blogIsolationApigrantwhatF94B5AB9",
+        },
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "blogIsolationApigrantwhatGETApiPermissionTesttestblogIsolationApi50E2E1F1GETgrantwhatFB077ED4": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationGrantFn52BAD062",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/test-invoke-stage/GET/grant/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApigrantwhatGETApiPermissiontestblogIsolationApi50E2E1F1GETgrantwhat009A6D7E": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationGrantFn52BAD062",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/",
+              Object {
+                "Ref": "blogIsolationApiDeploymentStageprodC5CB1FC6",
+              },
+              "/GET/grant/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApigrantwhatwho00C78EF6": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Ref": "blogIsolationApigrantwhatF94B5AB9",
+        },
+        "PathPart": "{who}",
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "blogIsolationApigrantwhatwhoGET6E59E95E": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "blogIsolationGrantFn52BAD062",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "blogIsolationApigrantwhatwho00C78EF6",
+        },
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "blogIsolationApigrantwhatwhoGETApiPermissionTesttestblogIsolationApi50E2E1F1GETgrantwhatwho81E5A2E3": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationGrantFn52BAD062",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/test-invoke-stage/GET/grant/*/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApigrantwhatwhoGETApiPermissiontestblogIsolationApi50E2E1F1GETgrantwhatwho467FD10C": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationGrantFn52BAD062",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/",
+              Object {
+                "Ref": "blogIsolationApiDeploymentStageprodC5CB1FC6",
+              },
+              "/GET/grant/*/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApiinitFC4E762D": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationApi0E03FFD8",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "init",
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "blogIsolationApiinitGET0F14200A": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "blogIsolationInitFnED4E3DEE",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "blogIsolationApiinitFC4E762D",
+        },
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "blogIsolationApiinitGETApiPermissionTesttestblogIsolationApi50E2E1F1GETinit4802EE34": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationInitFnED4E3DEE",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/test-invoke-stage/GET/init",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApiinitGETApiPermissiontestblogIsolationApi50E2E1F1GETinit30AA0B51": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationInitFnED4E3DEE",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/",
+              Object {
+                "Ref": "blogIsolationApiDeploymentStageprodC5CB1FC6",
+              },
+              "/GET/init",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApinoGrant82BFF917": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationApi0E03FFD8",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "noGrant",
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "blogIsolationApinoGrantwhatC6E7EED7": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Ref": "blogIsolationApinoGrant82BFF917",
+        },
+        "PathPart": "{what}",
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "blogIsolationApinoGrantwhatGET27676849": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "blogIsolationNoGrantFn238040C4",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "blogIsolationApinoGrantwhatC6E7EED7",
+        },
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "blogIsolationApinoGrantwhatGETApiPermissionTesttestblogIsolationApi50E2E1F1GETnoGrantwhatA0E91565": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationNoGrantFn238040C4",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/test-invoke-stage/GET/noGrant/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApinoGrantwhatGETApiPermissiontestblogIsolationApi50E2E1F1GETnoGrantwhat760CB25F": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationNoGrantFn238040C4",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/",
+              Object {
+                "Ref": "blogIsolationApiDeploymentStageprodC5CB1FC6",
+              },
+              "/GET/noGrant/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApinoGrantwhatwho927B34A1": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Ref": "blogIsolationApinoGrantwhatC6E7EED7",
+        },
+        "PathPart": "{who}",
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "blogIsolationApinoGrantwhatwhoGETApiPermissionTesttestblogIsolationApi50E2E1F1GETnoGrantwhatwhoC3A602CB": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationNoGrantFn238040C4",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/test-invoke-stage/GET/noGrant/*/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApinoGrantwhatwhoGETApiPermissiontestblogIsolationApi50E2E1F1GETnoGrantwhatwho79A78E03": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationNoGrantFn238040C4",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "blogIsolationApi0E03FFD8",
+              },
+              "/",
+              Object {
+                "Ref": "blogIsolationApiDeploymentStageprodC5CB1FC6",
+              },
+              "/GET/noGrant/*/*",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "blogIsolationApinoGrantwhatwhoGETC877DB57": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "blogIsolationNoGrantFn238040C4",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "blogIsolationApinoGrantwhatwho927B34A1",
+        },
+        "RestApiId": Object {
+          "Ref": "blogIsolationApi0E03FFD8",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "blogIsolationGrantFn52BAD062": Object {
+      "DependsOn": Array [
+        "blogIsolationGrantFnServiceRoleDefaultPolicyF1D518F4",
+        "blogIsolationGrantFnServiceRoleD6DE68ED",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cfaceS3Bucket0E289674",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cfaceS3VersionKeyDD88706C",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cfaceS3VersionKeyDD88706C",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "AuthRole": Object {
+              "Fn::GetAtt": Array [
+                "grantFnRole0FE5CF46",
+                "Arn",
+              ],
+            },
+            "MainTenant": "Tenant#1",
+            "TableArn": Object {
+              "Fn::GetAtt": Array [
+                "blogIsolationTable230EC315",
+                "Arn",
+              ],
+            },
+            "TableName": "blogIsolationTable",
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationGrantFnServiceRoleD6DE68ED",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "blogIsolationGrantFnServiceRoleD6DE68ED": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "blogIsolationGrantFnServiceRoleDefaultPolicyF1D518F4": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "blogIsolationTable230EC315",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      Object {
+                        "Fn::GetAtt": Array [
+                          "blogIsolationTable230EC315",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "blogIsolationGrantFnServiceRoleDefaultPolicyF1D518F4",
+        "Roles": Array [
+          Object {
+            "Ref": "blogIsolationGrantFnServiceRoleD6DE68ED",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "blogIsolationInitFnED4E3DEE": Object {
+      "DependsOn": Array [
+        "blogIsolationInitFnServiceRoleDefaultPolicy2AAF9324",
+        "blogIsolationInitFnServiceRole00037104",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters368c59f6adf92e5009581f9c3a2a263f7f705e5568e73134c984973c195b0142S3Bucket6EA67ECF",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters368c59f6adf92e5009581f9c3a2a263f7f705e5568e73134c984973c195b0142S3VersionKey688AF031",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters368c59f6adf92e5009581f9c3a2a263f7f705e5568e73134c984973c195b0142S3VersionKey688AF031",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "MainTenant": "Tenant#1",
+            "TableArn": Object {
+              "Fn::GetAtt": Array [
+                "blogIsolationTable230EC315",
+                "Arn",
+              ],
+            },
+            "TableName": "blogIsolationTable",
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationInitFnServiceRole00037104",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "blogIsolationInitFnServiceRole00037104": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "blogIsolationInitFnServiceRoleDefaultPolicy2AAF9324": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+                "dynamodb:ConditionCheckItem",
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "blogIsolationTable230EC315",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Fn::Join": Array [
+                    "",
+                    Array [
+                      Object {
+                        "Fn::GetAtt": Array [
+                          "blogIsolationTable230EC315",
+                          "Arn",
+                        ],
+                      },
+                      "/index/*",
+                    ],
+                  ],
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "blogIsolationInitFnServiceRoleDefaultPolicy2AAF9324",
+        "Roles": Array [
+          Object {
+            "Ref": "blogIsolationInitFnServiceRole00037104",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "blogIsolationNoGrantFn238040C4": Object {
+      "DependsOn": Array [
+        "blogIsolationNoGrantFnServiceRole969F5D11",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cfaceS3Bucket0E289674",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cfaceS3VersionKeyDD88706C",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters8f189aaebe117ad8ac9d0badbe09cc9c29fc37d3348c605a5e604ca37e5cfaceS3VersionKeyDD88706C",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1",
+            "AuthRole": Object {
+              "Fn::GetAtt": Array [
+                "noGrantFnRole423A84D4",
+                "Arn",
+              ],
+            },
+            "MainTenant": "Tenant#1",
+            "TableArn": Object {
+              "Fn::GetAtt": Array [
+                "blogIsolationTable230EC315",
+                "Arn",
+              ],
+            },
+            "TableName": "blogIsolationTable",
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "blogIsolationNoGrantFnServiceRole969F5D11",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs12.x",
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "blogIsolationNoGrantFnServiceRole969F5D11": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "blogIsolationTable230EC315": Object {
+      "DeletionPolicy": "Delete",
+      "Properties": Object {
+        "AttributeDefinitions": Array [
+          Object {
+            "AttributeName": "PK",
+            "AttributeType": "S",
+          },
+          Object {
+            "AttributeName": "SK",
+            "AttributeType": "S",
+          },
+          Object {
+            "AttributeName": "PK1",
+            "AttributeType": "S",
+          },
+          Object {
+            "AttributeName": "SK1",
+            "AttributeType": "S",
+          },
+        ],
+        "GlobalSecondaryIndexes": Array [
+          Object {
+            "IndexName": "gsi",
+            "KeySchema": Array [
+              Object {
+                "AttributeName": "PK1",
+                "KeyType": "HASH",
+              },
+              Object {
+                "AttributeName": "SK1",
+                "KeyType": "RANGE",
+              },
+            ],
+            "Projection": Object {
+              "ProjectionType": "ALL",
+            },
+            "ProvisionedThroughput": Object {
+              "ReadCapacityUnits": 5,
+              "WriteCapacityUnits": 5,
+            },
+          },
+        ],
+        "KeySchema": Array [
+          Object {
+            "AttributeName": "PK",
+            "KeyType": "HASH",
+          },
+          Object {
+            "AttributeName": "SK",
+            "KeyType": "RANGE",
+          },
+        ],
+        "ProvisionedThroughput": Object {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5,
+        },
+        "TableName": "blogIsolationTable",
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Delete",
+    },
+    "grantFnRole0FE5CF46": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "AWS": Object {
+                  "Fn::GetAtt": Array [
+                    "blogIsolationGrantFnServiceRoleD6DE68ED",
+                    "Arn",
+                  ],
+                },
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "noGrantFnRole423A84D4": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "AWS": Object {
+                  "Fn::GetAtt": Array [
+                    "blogIsolationNoGrantFnServiceRole969F5D11",
+                    "Arn",
+                  ],
+                },
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+      },
+      "Type": "AWS::IAM::Role",
+    },
+  },
+}
+`;

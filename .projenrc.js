@@ -3,6 +3,18 @@ const { AwsCdkTypeScriptApp } = require('projen');
 const project = new AwsCdkTypeScriptApp({
   cdkVersion: '1.73.0',
   name: 'blog-isolation',
+  authorName: 'Matt Martz',
+  authorUrl: 'https://matt.martz.codes/',
+  cdkDependencies: [
+    '@aws-cdk/core',
+    '@aws-cdk/aws-apigateway',
+    '@aws-cdk/aws-lambda',
+    '@aws-cdk/aws-lambda-nodejs',
+    '@aws-cdk/aws-dynamodb',
+    '@aws-cdk/aws-iam',
+  ],
+  deps: ['aws-sdk', '@middy/core'],
+  devDeps: ['esbuild', '@types/aws-lambda'],
 
   /* AwsCdkTypeScriptAppOptions */
   // appEntrypoint: 'main.ts',                                                 /* The CDK app's entrypoint (relative to the source directory, which is "src" by default). */
