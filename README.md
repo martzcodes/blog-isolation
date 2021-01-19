@@ -1,5 +1,7 @@
 # Example Code for a Blog
 
+Blog: https://matt.martz.codes/lock-down-dynamodb-with-iam-policy-conditions
+
 To run this yourself, clone the repo and run:
 
 ```bash
