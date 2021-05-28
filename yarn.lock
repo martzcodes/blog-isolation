@@ -1472,9 +1472,9 @@ aws-cdk@^1.73.0:
     yargs "^16.2.0"
 
 aws-sdk@^2.827.0, aws-sdk@^2.828.0:
-  version "2.828.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.828.0.tgz#6aa599c3582f219568f41fb287eb65753e4a9234"
-  integrity sha512-JoDujGdncSIF9ka+XFZjop/7G+fNGucwPwYj7OHYMmFIOV5p7YmqomdbVmH/vIzd988YZz8oLOinWc4jM6vvhg==
+  version "2.917.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.917.0.tgz#bb963954c9a73e308491468a03a65c7f6952bf30"
+  integrity sha512-9dYbmj2X6AcBOVrjajJbfNTTzQUJ88ZJZ0qpg/nTGn12BDAEEDY0h+woOkz5vF7+ZEHnAPxQHdsyOApFLqeiXQ==
   dependencies:
     buffer "4.9.2"
     events "1.1.1"
